@@ -12,29 +12,16 @@ class WeatherModel extends Weather {
     required super.windSpeed,
   });
 
-  Map<String, dynamic> toMap() {
-    return <String, dynamic>{
-      'lat': lat,
-      'lon': lon,
-      'timezone': timezone,
-      'feelsLike': feelsLike,
-      'humidity': humidity,
-      'windSpeed': windSpeed,
-    };
-  }
-
   factory WeatherModel.fromMap(Map<String, dynamic> map) {
     return WeatherModel(
-      lat: map['lat'] as String,
-      lon: map['lon'] as String,
+      lat: (map['lat'] as double).toString(),
+      lon: (map['lon'] as double).toString(),
       timezone: map['timezone'] as String,
-      feelsLike: map['feelsLike'] as String,
-      humidity: map['humidity'] as String,
-      windSpeed: map['windSpeed'] as String,
+      feelsLike: (map['current']['feels_like'] as double).toString(),
+      humidity: (map['current']['humidity'] as double).toString(),
+      windSpeed: (map['current']['wind_speed'] as double).toString(),
     );
   }
-
-  String toJson() => json.encode(toMap());
 
   factory WeatherModel.fromJson(String source) {
     return WeatherModel.fromMap(json.decode(source) as Map<String, dynamic>);

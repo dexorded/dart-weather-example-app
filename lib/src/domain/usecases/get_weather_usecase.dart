@@ -1,3 +1,4 @@
+import 'package:template_project/src/domain/entities/weather.dart';
 import 'package:template_project/src/domain/repositories/weather_repository.dart';
 
 class GetWeatherUseCase {
@@ -7,11 +8,13 @@ class GetWeatherUseCase {
     required this.weatherRepository,
   });
 
-  Future<void> call({
+  Future<Weather> call({
     required String lat,
     required String lon,
   }) async {
-    weatherRepository.getWeather(
+    print('$lat $lon');
+
+    return await weatherRepository.getWeather(
       lat: lat,
       lon: lon,
     );
