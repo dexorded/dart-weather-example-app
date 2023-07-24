@@ -1,5 +1,5 @@
 name: template_project
-description: A new Flutter project.
+description: Template
 publish_to: 'none'
 version: 0.1.0
 
@@ -7,13 +7,14 @@ environment:
   sdk: '>=3.0.6 <4.0.0'
 
 dependencies:
+  dio: ^5.3.0
   flutter:
     sdk: flutter
 
 dev_dependencies:
+  flutter_lints: ^2.0.0
   flutter_test:
     sdk: flutter
-  flutter_lints: ^2.0.0
 
 flutter:
   uses-material-design: true
